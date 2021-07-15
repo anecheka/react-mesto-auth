@@ -1,0 +1,12 @@
+.header__user-nav {
+    font-size: 18px;
+    color: #FFF;
+    line-height: 22px;
+    text-decoration: none;
+}
+
+.header__user-nav:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+

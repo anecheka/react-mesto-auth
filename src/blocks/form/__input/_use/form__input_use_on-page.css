@@ -1,0 +1,15 @@
+.form__input_use_on-page {
+    border-bottom: 2px solid rgba(204, 204, 204, 1);
+    background-color: #000000;
+    color: #fff;
+    outline: 0;
+    margin-bottom: 30px;
+}
+
+.form__input_use_on-page::placeholder {
+    color: rgba(204, 204, 204, 1);
+}
+
+.form__input_use_on-page:last-child {
+    margin-bottom: 0;
+}

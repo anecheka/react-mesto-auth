@@ -1,0 +1,12 @@
+.form__submit-button_use_on-page {
+    background-color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 1);
+    margin-top: 216px;
+    margin-bottom: 15px;
+    width: 358px;
+}
+
+.form__submit-button_use_on-page:disabled {
+    opacity: 0.8;
+    cursor: auto;
+}
