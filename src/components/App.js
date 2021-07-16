@@ -141,7 +141,6 @@ function App() {
     auth.authorize ({email, password})
     .then (data => {
       if (data.token) {
-        console.log(email);
         localStorage.setItem('jwt', data.token);
         setUserData(email);
         setLoggedIn(true);
@@ -164,6 +163,7 @@ function App() {
             history.push("/");
             }
           })
+          .catch(err => console.log(err))
       }
 
 }
@@ -202,11 +202,6 @@ function App() {
               <Switch>
                 <Route path="/sign-up">
                     <Register onRegister={handleRegister}/>
-                    <InfoToolTip 
-                      isOpen={isRegisteredPopupOpen} 
-                      onClose={closeAllPopups} 
-                      isRegistered={isRegistered}
-                    />
                   </Route>
                   <Route path="/sign-in">
                     <Login onLogin={handleLogin} tokenCheck={tokenCheck}/>
@@ -215,7 +210,7 @@ function App() {
                     exact path="/" 
                     loggedIn={loggedIn}
                     component = {() => (
-                      <div>
+                      
                       <Main
 
                       onEditProfile={handleEditProfileClick}
@@ -228,29 +223,6 @@ function App() {
                       cardArray={cards}
                     />
 
-                    <EditProfilePopup 
-                      isOpen={isEditProfilePopupOpen} 
-                      onClose={closeAllPopups} 
-                      onUpdateUser={handleUpdateUser}
-                    />
-                          
-                    <AddPlacePopup 
-                      isOpen={isAddPlacePopupOpen} 
-                      onClose={closeAllPopups}
-                      onAddPlace={handleAddPlaceSubmit}
-                    />
-
-                    <EditAvatarPopup 
-                      isOpen={isEditAvatarPopupOpen} 
-                      onClose={closeAllPopups} 
-                      onUpdateAvatar={handleUpdateAvatar}
-                    />
-
-                    <ImagePopup 
-                        card={selectedCard}
-                        onClose={closeAllPopups}
-                        />
-                    </div>
                     )}
                   />
                   <Route path="*">
@@ -258,6 +230,34 @@ function App() {
                   </Route>
               </Switch>
             <Footer />
+            <InfoToolTip 
+              isOpen={isRegisteredPopupOpen} 
+              onClose={closeAllPopups} 
+              isRegistered={isRegistered}
+            />
+
+            <EditProfilePopup 
+              isOpen={isEditProfilePopupOpen} 
+              onClose={closeAllPopups} 
+              onUpdateUser={handleUpdateUser}
+            />
+                          
+            <AddPlacePopup 
+              isOpen={isAddPlacePopupOpen} 
+              onClose={closeAllPopups}
+              onAddPlace={handleAddPlaceSubmit}
+            />
+
+            <EditAvatarPopup 
+              isOpen={isEditAvatarPopupOpen} 
+              onClose={closeAllPopups} 
+              onUpdateAvatar={handleUpdateAvatar}
+            />
+
+            <ImagePopup 
+              card={selectedCard}
+              onClose={closeAllPopups}
+            />
         </div>
       </CurrentUserContext.Provider>
   );
