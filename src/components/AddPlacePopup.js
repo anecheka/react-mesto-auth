@@ -39,9 +39,9 @@ export default function AddPlacePopup ({isOpen, onClose, onAddPlace}) {
                 onClose={onClose}
                 onSubmit={handleSubmit}
                 >
-                        <input className="form__input" onChange={handleChangeLocationName} type="text" name="name" id="location-name" placeholder="Название" minLength="2" maxLength="30" required />
+                        <input className="form__input" value={locationName || ''} onChange={handleChangeLocationName} type="text" name="name" id="location-name" placeholder="Название" minLength="2" maxLength="30" required />
                         <span className="form__input-error-message location-name-error"></span>
-                        <input className="form__input" onChange={handleChangePhotoUrl} type="url" name="link" id="photo-url" placeholder="Ссылка на картинку" required />
+                        <input className="form__input" value={photoUrl || ''} onChange={handleChangePhotoUrl} type="url" name="link" id="photo-url" placeholder="Ссылка на картинку" required />
                         <span className="form__input-error-message photo-url-error"></span>
         </PopupWithForm>
     )
